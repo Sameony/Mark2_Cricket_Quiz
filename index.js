@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 var score=0;
 var readlineSync = require("readline-sync");
 var name = readlineSync.question("Please enter your name: ");
@@ -34,14 +35,14 @@ ans3 = ["Naseem Shah",
       ]
 
 
-var choice = readlineSync.keyInYN("Welcome "+name+"! Would you like to test your knowledge on international cricket? ");
+var choice = readlineSync.keyInYN(chalk.blue("Welcome ")+chalk.red.bold(name)+chalk.blue("! Would you like to test your knowledge on international cricket? "));
 
 
 
 
 
 if(!choice)
-  console.log("Understandable. Have a great day.");
+  console.log(chalk.red("Understandable. Have a great day."));
 else
 {
   
@@ -51,24 +52,25 @@ else
          if(userAns.toUpperCase()===ans1[i].toUpperCase())
         {
           score+=1;
-          console.log("Correct answer!!");
+          console.log(chalk.greenBright("Correct answer!!"));
         }
         else
-          console.log("OOPS! Wrong answer. I hope it wasn't a spelling error!");
-          console.log("The correct ans is:"+ans1[i]);
+          console.log(chalk.redBright("OOPS! Wrong answer. I hope it wasn't a spelling error!"));
+          console.log(chalk.blueBright("The correct ans is:")+chalk.greenBright(ans1[i]));
         
        }
-       console.log("Your score is: "+score);
+       console.log("Your score is: "+chalk.green(score));
        if(score>=3)
         {  
-          console.log("You have advanced to level 2!");
+          console.log(chalk.greenBright("You have advanced to level 2!"));
         }
         else
         {
-          console.log("Oooh! You missed the Chance to advance to the next level by "+(3-score)+" points!");
+          console.log(chalk.bold("Oooh! You missed the Chance to advance to the next level by "+chalk.red(3-score)+" points!"));
         }
 }
-
+console.log();
+console.log();
 if(score==3)
 {
   score=0;
@@ -87,21 +89,21 @@ if(score==3)
          if(userAns.toUpperCase()===ans2[i].toUpperCase())
         {
           score+=1;
-          console.log("Correct answer!!");
+          console.log(chalk.greenBright("Correct answer!!"));
         }
         else
-          console.log("OOPS! Wrong answer. I hope it wasn't a spelling error!");
-          console.log("The correct ans is:"+ans2[i]);
+          console.log(chalk.redBright("OOPS! Wrong answer. I hope it wasn't a spelling error!"));
+          console.log("The correct ans is:"+chalk.green(ans2[i]));
         
        }
       console.log("Your score is: "+score);
       if(score>=3)
         {  
-          console.log("You have advanced to level 3!");
+          console.log(chalk.green("You have advanced to level 3!"));
         }
       else
         {
-          console.log("Oooh! You missed the Chance to advance to the next level by "+(3-score)+" points!");
+          console.log("Oooh! You missed the Chance to advance to the next level by "+chalk.redBright(3-score)+" points!");
         }
   }
 }
@@ -124,21 +126,21 @@ if(score==3)
          if(userAns.toUpperCase()===ans3[i].toUpperCase())
         {
           score+=1;
-          console.log("Correct answer!!");
+          console.log(chalk.greenBright("Correct answer!!"));
         }
         else
-          console.log("OOPS! Wrong answer. I hope it wasn't a spelling error!");
-          console.log("The correct ans is:"+ans3[i]);
+          console.log(chalk.redBright("OOPS! Wrong answer. I hope it wasn't a spelling error!"));
+          console.log("The correct ans is:"+chalk.greenBright(ans3[i]));
         
        }
       console.log("Your score is: "+score);
       if(score>=3)
         {  
-          console.log("You are a champion!!");
+          console.log(chalk.green.bgWhite.bold("You are a champion!!"));
         }
       else
         {
-          console.log("Oooh! You scored "+(score)+" points! GG WP!");
+          console.log("You scored "+chalk.greenBright(score)+" points! GG WP!");
         }
   }
 }
